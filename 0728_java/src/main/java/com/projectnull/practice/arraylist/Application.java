@@ -1,6 +1,5 @@
 package com.projectnull.practice.arraylist;
 
-import javax.swing.text.html.HTMLDocument;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
