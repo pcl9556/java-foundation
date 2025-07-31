@@ -1,26 +1,24 @@
-package com.projectnull.hw1.controller;
+package com.ohgiraffers.hw1.controller;
 
-import com.projectnull.hw1.model.compartor.AscCategory;
-import com.projectnull.hw1.model.compartor.DescCategory;
-import com.projectnull.hw1.model.dto.BookDTO;
+import com.ohgiraffers.hw1.model.comparator.AscCategory;
+import com.ohgiraffers.hw1.model.comparator.DescCategory;
+import com.ohgiraffers.hw1.model.dto.BookDTO;
+
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class BookManager {
+
     private ArrayList<BookDTO> bookList;
 
     public BookManager() {
         bookList = new ArrayList<>();
     }
-
     public void addBook(BookDTO book) {
         bookList.add(book);
     }
-
     public void deleteBook(int index) {
         bookList.remove(index);
     }
-
     public int searchBook(String title) {
         for (int i = 0; i < bookList.size(); i++) {
             if (bookList.get(i).getTitle().equals(title)) {
@@ -33,7 +31,6 @@ public class BookManager {
     public void printBook(int index) {
         System.out.println(bookList.get(index));
     }
-
     public void displayAll() {
         for (BookDTO book : bookList) {
             System.out.println(book);
@@ -42,21 +39,36 @@ public class BookManager {
 
     public ArrayList<BookDTO> sortedBookList(int select) {
         ArrayList<BookDTO> sortedList = new ArrayList<>(bookList);
-        if (select == 1) {
-            sortedList.sort(new AscCategory());
-        } else if (select == 2) {
-            sortedList.sort(new DescCategory());
+
+        for (int i = 0; i < sortedList.size() - 1; i++) {
+            for (int j = i + 1; j < sortedList.size(); j++) {
+                BookDTO b1 = sortedList.get(i);
+                BookDTO b2 = sortedList.get(j);
+
+                if (select == 1 && b1.getCategory() > b2.getCategory()) {
+                    // 오름차순
+                    sortedList.set(i, b2);
+                    sortedList.set(j, b1);
+                } else if (select == 2 && b1.getCategory() < b2.getCategory()) {
+                    // 내림차순
+                    sortedList.set(i, b2);
+                    sortedList.set(j, b1);
+                }
+            }
         }
+
         return sortedList;
     }
 
-    public void printBookList(ArrayList<BookDTO> list) {
+
+    public void printBookList(ArrayList <BookDTO> list) {
         for (BookDTO book : list) {
             System.out.println(book);
         }
-    }
 
+    }
     public boolean isEmpty() {
         return bookList.isEmpty();
     }
+
 }

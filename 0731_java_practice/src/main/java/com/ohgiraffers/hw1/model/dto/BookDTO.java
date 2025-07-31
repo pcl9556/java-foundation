@@ -1,4 +1,4 @@
-package com.projectnull.hw1.model.dto;
+package com.ohgiraffers.hw1.model.dto;
 
 public class BookDTO {
 
@@ -46,7 +46,5 @@ public class BookDTO {
         };
         return number + "번 제목 : " + title + "장르 : " + cStr + "저자" + author;
     }
-
-
 
 }
