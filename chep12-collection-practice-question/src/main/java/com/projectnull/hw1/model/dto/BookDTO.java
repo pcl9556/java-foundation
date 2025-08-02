@@ -43,10 +43,7 @@ public class BookDTO {
             case 4 :
                 cStr = "기타";
                 break;
-        };
+        }
         return number + "번 제목 : " + title + "장르 : " + cStr + "저자" + author;
     }
-
-
-
 }

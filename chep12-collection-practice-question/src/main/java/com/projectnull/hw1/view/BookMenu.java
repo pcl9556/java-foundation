@@ -11,7 +11,7 @@ public class BookMenu {
 
     public void menu() {
         while (true) {
-            System.out.println("\n*** 도서 관리 프로그램 ***");
+            System.out.println("===== 도서 관리 프로그램 =====");
             System.out.println("1. 새 도서 추가");
             System.out.println("2. 도서정보 정렬 후 출력");
             System.out.println("3. 도서 삭제");
@@ -30,34 +30,34 @@ public class BookMenu {
 
                 case 2:
                     System.out.println("정렬방식을 선택하세요 1 - 오름차순, 2 - 내림차순 : ");
-                    int 
+                    break;
 
                 case 3:
                     String delTitle = inputBookTitle();
-                    int delIndex = manager.searchBook(delTitle);
+                    int delIndex = bm.searchBook(delTitle);
                     if (delIndex == -1) {
                         System.out.println("삭제할 도서가 존재하지 않습니다.");
                     } else {
-                        manager.deleteBook(delIndex);
+                        bm.deleteBook(delIndex);
                         System.out.println("성공적으로 삭제하였습니다.");
                     }
                     break;
 
                 case 4:
                     String searchTitle = inputBookTitle();
-                    int searchIndex = manager.searchBook(searchTitle);
+                    int searchIndex = bm.searchBook(searchTitle);
                     if (searchIndex == -1) {
                         System.out.println("조회한 도서가 존재하지 않습니다.");
                     } else {
-                        manager.printBook(searchIndex);
+                        bm.printBook(searchIndex);
                     }
                     break;
 
                 case 5:
-                    if (manager.isEmpty()) {
+                    if (bm.isEmpty()) {
                         System.out.println("출력할 도서가 없습니다.");
                     } else {
-                        manager.displayAll();
+                        bm.displayAll();
                     }
                     break;
 

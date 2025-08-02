@@ -1,10 +1,13 @@
 package com.ohgiraffers.hw1.run;
 
 import com.ohgiraffers.hw1.controller.BookManager;
+import com.ohgiraffers.hw1.view.BookMenu;
 
 public class Application {
 
     public static void main(String[] args) {
-        BookManager bm = new BookManager();
+        BookMenu bm = new BookMenu();
+        bm.menu();
+
     }
 }
